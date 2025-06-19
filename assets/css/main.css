@@ -4479,6 +4479,10 @@ input:focus {
   outline: none;
 }
 
+input {
+  border-radius: 0;
+}
+
 .padding {
   padding: 0;
 }
