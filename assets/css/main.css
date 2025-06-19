@@ -3081,7 +3081,7 @@
 .profits__list-item::after {
   content: "";
   display: block;
-  background: url(/assets/img/svg/profits-down.svg) no-repeat;
+  background: url(/../img/svg/profits-down.svg) no-repeat;
   background-size: cover;
   background-position: center;
   max-width: 353px;
@@ -3094,7 +3094,7 @@
 .profits__list-item::before {
   content: "";
   display: block;
-  background: url(/assets/img/svg/profits-up.svg);
+  background: url(/../img/svg/profits-up.svg);
   max-width: 353px;
   width: 100%;
   height: 20px;
