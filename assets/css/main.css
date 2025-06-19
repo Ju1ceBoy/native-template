@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url(/assets/fonts/SFPro/stylesheet.css);
+@import url(../fonts/SFPro/stylesheet.css);
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
