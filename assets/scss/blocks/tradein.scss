@@ -1,0 +1,209 @@
+.tradein {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-bottom: 40px;
+    &__img-wrapper {
+        height: 707px;
+        width: 100%;
+        max-width: 1820px;
+        border-radius: 20px;
+        background: url(../../img/banners/banner__tradein.webp);
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        margin: 0 49px;
+    }
+    
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        max-width: 1180px;
+        width: 100%;
+        padding-top: 64px;
+    }
+
+    &__title {
+        font-size: 55px;
+        font-weight: 500;
+        color: #fff;
+        margin-bottom: 10px;
+    }
+    &__subtitle {
+        font-size: 24px;
+        font-weight: 500;
+        color: #fff;
+        &-color {
+            color: #FFFFFF8F;
+        }
+    }
+    &__benefits {
+        margin-top: 62px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 90px;
+        position: relative;
+        &::before {
+            content: '';
+            display: block;
+            background: url(../../img/svg/tradein-benefits.svg);
+            width: 8px;
+            height: 197px;
+            position: absolute;
+            left: 0;
+        }
+        &-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-left: 34px;
+            &__title {
+                font-size: 32px;
+                font-weight: 600;
+                color: #fff;
+            }
+            &__subtitle {
+                font-size: 16px;
+                font-weight: 400;
+                color: #FFFFFFB2;
+            }
+        }
+    }
+    &__form {
+        display: flex;
+        max-width: 688px;
+        width: 100%;
+        column-gap: 11px;
+        row-gap: 25px;
+        flex-wrap: wrap;
+        .form-input {
+            background: #FFFFFF;
+            max-width: 223px;
+            width: 100%;
+            height: 44px;
+            border-radius: 61px;
+            padding-left: 23px;
+            font-size: 16px;
+            font-weight: 400;
+            color: #18668F;
+            border: none;
+            &::placeholder {
+                font-size: 16px;
+                font-weight: 400;
+                color: #18668F;
+            }
+        }
+        .form-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #1B365D 0%, #418FDE 191.58%);
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+            border-radius: 71px;
+            border: none;
+            max-width: 220px;
+            width: 100%;
+            height: 44px;
+        }
+        .form-checkbox-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            gap: 12px;
+        }
+        .custom-checkbox {
+            // display: inline-block;
+            width: 15px;
+            height: 15px;
+            background: transparent;
+            border: 1px solid #fff;
+            border-radius: 1px;
+            cursor: pointer;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .custom-checkbox .check {
+            filter: none;
+            width: 11px;
+            height: 11px;
+            background: #fff;
+            opacity: 0;
+        }
+        input[type=checkbox] {
+            position: absolute;
+            opacity: 0;
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+        }
+        input[type=checkbox]:checked + span .check {
+            opacity: 1;
+        }
+        .form-text {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 400;
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .tradein {
+        &__img-wrapper {
+            background: url(../../img/banners/banner__tradein-mob.png);
+            height: auto;
+            background-size: cover;
+            background-position: top;
+            margin: 0 20px;
+        }
+        &__wrapper {
+            padding-top: 257px;
+            padding-top: 300px;
+            margin: 0 20px;
+        }
+        &__title {
+            font-size: 30px;
+        }
+        &__subtitle {
+            font-size: 16px;
+            max-width: 230px;
+        }
+        &__benefits {
+            margin-bottom: 34px;
+            margin-top: 17px;
+            gap: 24px;
+            &::before {
+                height: 171px;
+                width: 9px;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+            &-item {
+                &__title {
+                    font-size: 16px;
+                }
+                &__subtitle {
+                    font-size: 12px;
+                }
+            }
+        }
+        &__form {
+            row-gap: 10px;
+            margin-bottom: 28px;
+            .form-input {
+                max-width: none;
+            }
+            .form-btn {
+                max-width: none;
+            }
+            .form-text {
+                font-size: 10px;
+                margin-top: 10px;
+            }
+        }
+    }
+}
