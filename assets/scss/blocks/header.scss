@@ -24,6 +24,8 @@
 		width: 100%;
 		&-item {
 			svg {
+				height: 100%;
+				width: 100%;
 				path {
 					transition: all .4s ease-in-out;
 				}

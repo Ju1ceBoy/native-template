@@ -41,6 +41,10 @@
   max-width: 210px;
   width: 100%;
 }
+.header__social-item svg {
+  height: 100%;
+  width: 100%;
+}
 .header__social-item svg path {
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
