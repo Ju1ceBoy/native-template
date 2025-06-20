@@ -114,7 +114,6 @@
                 letter-spacing: -2%;
                 text-decoration: underline;
                 text-decoration-style: solid;
-                text-decoration-offset: 0%;
                 text-decoration-thickness: 0%;
                 color: #A0A0A0;
                 cursor: pointer;
@@ -161,6 +160,10 @@
             &-item {
                 height: 42px;
                 font-size: 12px;
+                width: 100%;
+                text-align: center;
+                text-wrap: nowrap;
+                padding: 13px;
             }
         
         }

@@ -54,12 +54,14 @@ button {
 @media (max-width: 991px) {
   .container {
     max-width: 768px;
+    padding: 0 90px;
   }
 }
 
 @media (max-width: 768px) {
   .container {
     max-width: 540px;
+    padding: 0 50px;
   }
 }
 

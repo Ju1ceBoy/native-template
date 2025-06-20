@@ -868,6 +868,13 @@
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 100%;
   }
   .home__img-inner {
     display: -webkit-box;
@@ -900,13 +907,17 @@
         align-self: end;
     font-size: 16px;
     font-weight: 400;
+    max-width: 149px;
   }
   .home__benefits-pages {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    gap: 9px;
+    width: 100%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
   .home__benefits-pages-item {
     border: 1px solid #9CAEFF;
@@ -1121,6 +1132,7 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    max-width: 352px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -1169,14 +1181,10 @@
   }
   .profits__list-item {
     height: 160px;
-    max-width: none;
   }
   .profits__list-item::after, .profits__list-item::before {
     background-size: contain;
     background-repeat: no-repeat;
-  }
-  .profits__list-item-ball {
-    right: 50px;
   }
   .profits__list-item-title {
     font-size: 18px;
@@ -1383,7 +1391,6 @@
   letter-spacing: -2%;
   text-decoration: underline;
   text-decoration-style: solid;
-  text-decoration-offset: 0%;
   text-decoration-thickness: 0%;
   color: #A0A0A0;
   cursor: pointer;
@@ -1438,6 +1445,10 @@
   .projects__tabs-item {
     height: 42px;
     font-size: 12px;
+    width: 100%;
+    text-align: center;
+    text-wrap: nowrap;
+    padding: 13px;
   }
   .projects__cards {
     margin-top: 20px;
@@ -2439,11 +2450,13 @@ button {
 @media (max-width: 991px) {
   .container {
     max-width: 768px;
+    padding: 0 90px;
   }
 }
 @media (max-width: 768px) {
   .container {
     max-width: 540px;
+    padding: 0 50px;
   }
 }
 @media (max-width: 540px) {

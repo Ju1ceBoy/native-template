@@ -240,6 +240,9 @@
             transform: unset;
             &-wrapper {
                 align-self: center;
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
             }
             &-inner {
                 display: flex;
@@ -263,11 +266,14 @@
                 align-self: end;
                 font-size: 16px;
                 font-weight: 400;
+                max-width: 149px;
             }
 
             &-pages {
                 flex-direction: row;
-                gap: 9px;
+                // gap: 9px;
+                width: 100%;
+                justify-content: space-between;
                 &-item {
                     border: 1px solid #9CAEFF;
                     border-radius: 130px;

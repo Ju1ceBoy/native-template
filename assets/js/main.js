@@ -320,18 +320,14 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     function filter() {
-        // Элементы с вашими классами
         const filterButtons = document.querySelectorAll('.projects__tabs-item');
         const portfolioItems = document.querySelectorAll('.projects__cards-item');
         const loadMoreBtn = document.querySelector('.projects__showmore');
         
-        // Настройки
         let visibleItems = 6;
         let currentFilter = 'all';
 
-        // Инициализация портфолио
         function initPortfolio() {
-            // Сначала скрываем все элементы сверх лимита
             portfolioItems.forEach((item, index) => {
                 if (index >= visibleItems) {
                     item.classList.add('projects__cards-item--hidden');
@@ -341,27 +337,22 @@ window.addEventListener("DOMContentLoaded", () => {
             updateLoadMoreButton();
         }
 
-        // Обновление состояния кнопки "Показать ещё"
         function updateLoadMoreButton() {
-            // Все элементы текущего фильтра
             const filteredItems = Array.from(portfolioItems).filter(item => {
                 const matchesFilter = currentFilter === 'all' || 
                                 item.dataset.category === currentFilter;
                 return matchesFilter && !item.classList.contains('projects__cards-item--filtered');
             });
             
-            // Скрытые элементы текущего фильтра
             const hiddenItems = filteredItems.filter(item => {
                 return item.classList.contains('projects__cards-item--hidden');
             }).length;
 
-            // Показываем кнопку только если есть скрытые элементы
             if (loadMoreBtn) {
                 loadMoreBtn.style.display = hiddenItems > 0 ? 'block' : 'none';
             }
         }
 
-        // Фильтрация проектов
         filterButtons.forEach(button => {
             button.addEventListener('click', function() {
                 // Активируем текущую кнопку фильтра
@@ -387,12 +378,10 @@ window.addEventListener("DOMContentLoaded", () => {
             });
         });
 
-        // Кнопка "Показать ещё"
         if (loadMoreBtn) {
             loadMoreBtn.addEventListener('click', function() {
-                visibleItems += 6; // Увеличиваем лимит
+                visibleItems += 6;
                 
-                // Показываем дополнительные элементы
                 portfolioItems.forEach((item, index) => {
                     const matchesFilter = currentFilter === 'all' || 
                                     item.dataset.category === currentFilter;
@@ -407,7 +396,6 @@ window.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        // Запускаем инициализацию
         initPortfolio();
     }
 
