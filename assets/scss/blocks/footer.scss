@@ -84,6 +84,10 @@
                 max-width: 161px;
                 height: 36px;
                 width: 100%;
+                transition: all .4s;
+                &:hover {
+                    background: #ffffffe6;
+                }
             }
             &__text {
                 color: #fff;
@@ -136,6 +140,23 @@
     &__social {
         display: flex;
         gap: 30px;
+        &-item {
+            svg {
+				path {
+					transition: all .4s ease-in-out;
+				}
+			}
+			&:hover {
+				.first-path {
+					fill: #9CAEFF;
+				}
+			}
+			&:active {
+				.first-path {
+					fill: #9CAEFF;
+				}
+			}
+        }
     }
 }
 
