@@ -4,20 +4,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
     initMaskTel();
     initFancy();
-    // initCustomSelect();
     initScroll();
-    // initMobileBurger();
-    // initClicks()
-    // initEquip()
-    // initColorChange()
-    // initModelsSwiper()
-    // initInstockSwiper()
-    // initSelects()
-    // initNouislider()
     filter()
     initProfitsSwiper()
     AOS.init()
-    // loadMore()
+    // initCustomSelect();
+    // initMobileBurger();
+    // initSelects()
+    // initNouislider()
 
     function initScroll() {
         window.addEventListener('scroll', (e) => {
@@ -132,93 +126,6 @@ window.addEventListener("DOMContentLoaded", () => {
         })
     }
 
-    function initClicks() {
-        const header = document.querySelector('.header')
-        const headerModelMenu = document.querySelectorAll('.js-header-sub-menu')
-        
-        document.addEventListener('click', (event) => {
-            if (event.target.closest('.header-menu__nav-link')) {
-                header.classList.remove('active')
-            }
-            if (event.target.closest('.js-header-sub-menu')) {
-                event.preventDefault()
-                headerModelMenu.forEach((item) => {
-                    item.classList.toggle('active')
-                })
-            }
-        })
-    }
-
-    function initEquip() {
-        const equipCard = document.querySelectorAll('.equip-card')
-        
-        for (let i = 0; i < 3; i++) {
-            equipCard[i].classList.remove('showmore-hide')
-            if (i == 0) {
-                
-            }
-        }
-        
-        const equipCardArrow = document.querySelectorAll('.js_toggle_equip')
-        
-        equipCardArrow.forEach((arrow) => {
-            arrow.addEventListener('click', function (item) {
-                let equipCardInfo = arrow.closest('.equip-card-wrapper').nextElementSibling
-                let equipCardOuterBtn = arrow.closest('.equip-card').lastElementChild
-                let equipSpecsBox = document.querySelectorAll('.equip-specs-wrapper')
-                equipCardInfo.classList.toggle('flex')
-                equipCardOuterBtn.classList.toggle('mob-hide')
-                if (equipCardInfo.classList.contains('flex')) {
-                    arrow.closest('.equip-card').style.setProperty('background', '#F6F6F6')
-                    arrow.style.setProperty('transform', 'rotate(180deg)')
-                    equipSpecsBox.forEach(function (box) {
-                        box.style.setProperty('border-bottom', 'none')
-                    })
-                } else {
-                    arrow.closest('.equip-card').style.setProperty('background', '#fff')
-                    arrow.style.setProperty('transform', 'rotate(0deg)')
-                    equipSpecsBox.forEach(function (box) {
-                        box.style.setProperty('border-bottom', 'inherit')
-                    })
-                }
-            })
-        })
-    }
-
-    function initColorChange() {
-        const cards = document.querySelectorAll('.models-card')
-    
-        if (cards.length == 0) return
-    
-        cards.forEach((card) => {
-            const colors = card.querySelectorAll('.color')
-            const imgs = card.querySelectorAll('.swiper-wrapper img')
-    
-            colors.forEach((color, idx) => {
-                color.addEventListener('click', () => {
-                    const activeColor = card.querySelector('.color.active')
-                    const activeImg = card.querySelector('.swiper-wrapper img.active')
-                    const colorParam = window.getComputedStyle(color)
-    
-                    activeColor && activeColor.classList.remove('active')
-                    activeImg && activeImg.classList.remove('active')
-                    activeColor && activeColor.classList.remove('active-black')
-    
-                    color.classList.add('active')
-                    imgs[idx].classList.add('active')
-                    console.log(colorParam.getPropertyValue('background-color'))
-                    if (colorParam.getPropertyValue('background-color') === 'rgb(255, 255, 255)') {
-                        // activeColor.style.setProperty('background', `url(../themes/${nameTheme}/assets/img/svg/mark-black.svg)`)
-                        color.classList.add('active-black')
-                    } else {
-                        // activeColor.style.setProperty('background', `url(../themes/${nameTheme}/assets/img/svg/mark.svg)`)
-                        color.classList.remove('active-black')
-                    }
-                })
-            })
-        })
-    }
-
     function initProfitsSwiper() {
         var swiper = new Swiper('.profits__list', {
             direction: 'horizontal',
@@ -237,24 +144,6 @@ window.addEventListener("DOMContentLoaded", () => {
                     enabled: false,
                 },
             },
-        })
-    }
-
-    function initInstockSwiper() {
-        var swiper = new Swiper('.instock-swiper', {
-            direction: 'vertical',
-            slidesPerView: 1,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-                // renderBullet: function (index, className) {
-                //   return '<div class="' + className + '" style="background-image: url(./assets/img/'+ index +'.png)">' + "</div>";
-                // },
-                },
         })
     }
     
@@ -397,99 +286,6 @@ window.addEventListener("DOMContentLoaded", () => {
         }
 
         initPortfolio();
-    }
-
-    function loadMore() {
-        const filterButtons = document.querySelectorAll('.projects__tabs-item');
-        const portfolioItems = document.querySelectorAll('.projects__cards-item');
-        const loadMoreBtn = document.querySelector('.projects__showmore');
-        let visibleItems = 6; // Показываем первые 6 проектов
-        let currentFilter = 'all';
-
-        // Инициализация (первая загрузка)
-        function initPortfolio() {
-            // 1. Прячем лишние проекты (все, что > 6)
-            portfolioItems.forEach((item, index) => {
-                if (index >= visibleItems) {
-                    item.classList.add('hidden-initially');
-                }
-            });
-
-            // 2. Проверяем, нужна ли кнопка "Показать ещё"
-            updateLoadMoreButton();
-        }
-
-        // Обновление состояния кнопки "Показать ещё"
-        function updateLoadMoreButton() {
-            // Считаем ТОЛЬКО проекты текущего фильтра (не скрытые)
-            const visibleItemsInFilter = Array.from(portfolioItems).filter(item => {
-                const isVisible = !item.classList.contains('hide') && 
-                                !item.classList.contains('hidden-initially');
-                const matchesFilter = currentFilter === 'all' || 
-                                    item.dataset.category === currentFilter;
-                return isVisible && matchesFilter;
-            }).length;
-
-            // Общее количество проектов в текущем фильтре (включая скрытые)
-            const totalInFilter = Array.from(portfolioItems).filter(item => {
-                return currentFilter === 'all' || item.dataset.category === currentFilter;
-            }).length;
-
-            // Показываем кнопку только если есть что грузить
-            loadMoreBtn.style.display = (visibleItemsInFilter < totalInFilter) ? 'block' : 'none';
-            console.log(`Видимых: ${visibleItemsInFilter}, Всего: ${totalInFilter}`);
-        }
-
-        // Фильтрация проектов
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                // 1. Обновляем активную кнопку фильтра
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-                currentFilter = this.dataset.filter;
-
-                // 2. Сбрасываем видимые проекты до 6
-                visibleItems = 6;
-
-                // 3. Применяем фильтр и обновляем отображение
-                portfolioItems.forEach((item, index) => {
-                    const matchesFilter = currentFilter === 'all' || item.dataset.category === currentFilter;
-
-                    if (matchesFilter && index < visibleItems) {
-                        item.classList.remove('hide', 'hidden-initially');
-                    } else if (matchesFilter) {
-                        item.classList.remove('hide');
-                        item.classList.add('hidden-initially');
-                    } else {
-                        item.classList.add('hide');
-                    }
-                });
-
-                visibleItems = 6; // Сбрасываем счётчик
-                // 4. Обновляем кнопку
-                updateLoadMoreButton();
-            });
-        });
-
-        // Кнопка "Показать ещё"
-        loadMoreBtn.addEventListener('click', function() {
-            visibleItems += 6; // Увеличиваем лимит
-
-            // Показываем дополнительные проекты
-            portfolioItems.forEach((item, index) => {
-                const matchesFilter = currentFilter === 'all' || item.dataset.category === currentFilter;
-                if (matchesFilter && index < visibleItems) {
-                    item.classList.remove('hidden-initially');
-                }
-            });
-
-            // Обновляем кнопку
-            updateLoadMoreButton();
-        });
-
-        // Запускаем инициализацию
-        initPortfolio();
-        
     }
 })
 
